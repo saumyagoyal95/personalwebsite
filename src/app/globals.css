@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens — ported from the Claude Design file "Personal Site.dc.html".
+
+   Palette:  Peach #EDBDA3 · Orange #E07F48 · Cream #EFE3D3
+             Gold  #CC972D · Navy   #06264C
+
+   PRIMARY (button fills)  = peach on dark / navy on light
+   ACCENT  (highlight 1)   = orange
+   GOLD    (highlight 2)   = gold
+
+   Themes are plain CSS variables so they can flip at runtime; the @theme inline
+   block below re-exports them as Tailwind utilities.
+--------------------------------------------------------------------------- */
+
+/* Dark is the default theme. */
+:root {
+  --bg: #06264c;
+  --surface: #0c3160; /* card background */
+  --elevated: #12406f;
+  --fg: #f3e6d6;
+  --body: rgba(243, 230, 214, 0.82);
+  --muted: rgba(243, 230, 214, 0.6);
+  --faint: rgba(243, 230, 214, 0.45);
+  --line: rgba(243, 230, 214, 0.14);
+  --line-strong: rgba(243, 230, 214, 0.28);
+
+  --primary: #edbda3;
+  --primary-ink: #06264c;
+  --accent: #e07f48;
+  --gold: #d9a94a;
+
+  --chip: rgba(243, 230, 214, 0.08);
+  --glow: rgba(237, 189, 163, 0.28);
+  --glow-strong: rgba(237, 189, 163, 0.42);
+  --card-glow: rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f3e7db;
+  --surface: #ffffff;
+  --elevated: #faf3ea;
+  --fg: #06264c;
+  --body: rgba(6, 38, 76, 0.82);
+  --muted: rgba(6, 38, 76, 0.58);
+  --faint: rgba(6, 38, 76, 0.45);
+  --line: rgba(6, 38, 76, 0.1);
+  --line-strong: rgba(6, 38, 76, 0.28);
+
+  --primary: #06264c;
+  --primary-ink: #f3e7db;
+  --accent: #d06a34;
+  --gold: #b3831f;
+
+  --chip: rgba(6, 38, 76, 0.05);
+  --glow: rgba(6, 38, 76, 0.18);
+  --glow-strong: rgba(6, 38, 76, 0.28);
+  --card-glow: rgba(6, 38, 76, 0.14);
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-fg: var(--fg);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-ink: var(--primary-ink);
+  --color-accent: var(--accent);
+  --color-gold: var(--gold);
+  --color-chip: var(--chip);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------- */
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------------
+   Component classes lifted from the design file.
+--------------------------------------------------------------------------- */
+
+/* Card: hover lifts, casts a glow, border shifts to the primary tone. */
+.dc-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition:
+    transform 0.3s var(--ease-spring),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.dc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px var(--card-glow);
+  border-color: var(--primary);
+}
+
+/* Buttons: springy lift, primary carries a colour glow. */
+.dc-btn {
+  transition:
+    transform 0.25s var(--ease-spring),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.dc-btn:hover {
+  transform: translateY(-3px);
+}
+.dc-btn-primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+  box-shadow: 0 8px 26px var(--glow);
+}
+.dc-btn-primary:hover {
+  box-shadow: 0 14px 36px var(--glow-strong);
+}
+.dc-btn-outline {
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+}
+.dc-btn-outline:hover {
+  border-color: var(--primary);
+}
+
+/* Small chip / pill used for tags, meta, and the availability badge. */
+.dc-chip {
+  background: var(--chip);
+  border: 1px solid var(--line);
+}
+
+/* Floating hero portrait. */
+@keyframes dc-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -14px);
+  }
+}
+.dc-float {
+  animation: dc-float 6s ease-in-out infinite;
+}
+
+/* Animated underline for inline links. */
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease-out-expo);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .dc-card:hover,
+  .dc-btn:hover {
+    transform: none;
+  }
+}
