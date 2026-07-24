@@ -21,17 +21,13 @@ export default function WritingPage() {
             <RevealItem className="mb-3.5">
               <Kicker>Writing</Kicker>
             </RevealItem>
-            <RevealItem as="h1">
-              <h1 className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
-                Notes from the <span className="text-accent">field.</span>
-              </h1>
+            <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
+              Notes from the <span className="text-accent">field.</span>
             </RevealItem>
-            <RevealItem as="p">
-              <p className="mt-[22px] text-[19px] leading-[1.65] text-muted">
-                I write about MLOps, data science, and the craft of a career in
-                tech — mostly on Medium. A few favourites below; the rest live on
-                my profile.
-              </p>
+            <RevealItem as="p" className="mt-[22px] text-[19px] leading-[1.65] text-muted">
+              I write about MLOps, data science, and the craft of a career in
+              tech — mostly on Medium. A few favourites below; the rest live on
+              my profile.
             </RevealItem>
           </Reveal>
         </Container>

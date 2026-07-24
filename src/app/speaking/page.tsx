@@ -38,19 +38,15 @@ export default function SpeakingPage() {
             <RevealItem className="mb-3.5">
               <Kicker>Speaking profile</Kicker>
             </RevealItem>
-            <RevealItem as="h1">
-              <h1 className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
-                On stage &amp; in the{" "}
-                <span className="text-accent">community.</span>
-              </h1>
+            <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
+              On stage &amp; in the{" "}
+              <span className="text-accent">community.</span>
             </RevealItem>
-            <RevealItem as="p">
-              <p className="mt-[22px] max-w-[560px] text-[19px] leading-[1.65] text-muted">
-                I give technical talks that respect the audience&apos;s
-                intelligence and their time — turning MLOps, LLM observability,
-                and the messy reality of production ML into something people can
-                use.
-              </p>
+            <RevealItem as="p" className="mt-[22px] max-w-[560px] text-[19px] leading-[1.65] text-muted">
+              I give technical talks that respect the audience&apos;s
+              intelligence and their time — turning MLOps, LLM observability,
+              and the messy reality of production ML into something people can
+              use.
             </RevealItem>
             <RevealItem className="mt-[34px] flex flex-wrap gap-3.5">
               <Button href="/book" size="lg">
@@ -155,10 +151,8 @@ export default function SpeakingPage() {
             <RevealItem className="mb-3.5">
               <Kicker tone="gold">Speaker one-sheet</Kicker>
             </RevealItem>
-            <RevealItem as="h2">
-              <h2 className="font-display text-[30px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[36px]">
-                The quick facts for organizers.
-              </h2>
+            <RevealItem as="h2" className="font-display text-[30px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[36px]">
+              The quick facts for organizers.
             </RevealItem>
             <RevealItem className="mt-8 flex flex-wrap gap-3.5">
               <Button href="/book" size="lg">

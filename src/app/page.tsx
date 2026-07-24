@@ -28,22 +28,18 @@ export default function HomePage() {
               title="Making the invisible parts of ML visible."
             />
             <Reveal className="mt-6 space-y-4">
-              <RevealItem as="p">
-                <p className="text-[16.5px] leading-[1.8] text-body">
-                  I&apos;m a Senior Machine Learning Engineer at Datamics, where I
-                  help teams take MLOps and LLM systems from prototype into
-                  production — and make sure they stay observable once they&apos;re
-                  there.
-                </p>
+              <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
+                I&apos;m a Senior Machine Learning Engineer at Datamics, where I
+                help teams take MLOps and LLM systems from prototype into
+                production — and make sure they stay observable once they&apos;re
+                there.
               </RevealItem>
-              <RevealItem as="p">
-                <p className="text-[16.5px] leading-[1.8] text-body">
-                  Before Datamics I was at Verizon. I&apos;m an AWS Solutions
-                  Architect and an Informatics graduate of the Technical
-                  University of Munich. When I&apos;m not shipping, I&apos;m
-                  usually writing or speaking about making ML systems easier to
-                  trust.
-                </p>
+              <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
+                Before Datamics I was at Verizon. I&apos;m an AWS Solutions
+                Architect and an Informatics graduate of the Technical
+                University of Munich. When I&apos;m not shipping, I&apos;m
+                usually writing or speaking about making ML systems easier to
+                trust.
               </RevealItem>
               <RevealItem className="pt-2">
                 <Button href="/about" variant="outline">

@@ -59,11 +59,23 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${workSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Sets data-theme from localStorage before first paint. */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="relative flex min-h-full flex-col">
+        {/*
+          Applies the stored theme to <html> before the page paints, so a reload
+          never flashes the wrong palette. Must stay the first thing in <body>:
+          it runs during HTML parse, ahead of any content being rendered.
+          Deliberately not in a manual <head> — the App Router owns that element.
+        */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/*
+          Scroll reveals are rendered by motion with an inline `opacity:0` in the
+          SSR HTML, and only revealed once JS hydrates. Without JS that would
+          leave the whole page blank, so undo the hidden state when scripting is
+          off — the content is what matters, the animation is decoration.
+        */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <Nav />
         <main className="relative flex-1">{children}</main>
         <Footer />

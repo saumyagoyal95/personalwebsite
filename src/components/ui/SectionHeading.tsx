@@ -30,21 +30,18 @@ export function SectionHeading({
           <Kicker tone={kickerTone}>{kicker}</Kicker>
         </RevealItem>
       )}
-      <RevealItem as="h2">
-        <h2 className="font-display text-[30px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[40px]">
-          {title}
-        </h2>
+      <RevealItem as="h2" className="font-display text-[30px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[40px]">
+        {title}
       </RevealItem>
       {intro && (
-        <RevealItem as="p" className="mt-2">
-          <p
-            className={cn(
-              "max-w-[560px] text-base leading-relaxed text-muted sm:text-[16.5px]",
-              align === "center" && "mx-auto",
-            )}
-          >
-            {intro}
-          </p>
+        <RevealItem
+          as="p"
+          className={cn(
+            "mt-2 max-w-[560px] text-base leading-relaxed text-muted sm:text-[16.5px]",
+            align === "center" && "mx-auto",
+          )}
+        >
+          {intro}
         </RevealItem>
       )}
     </Reveal>

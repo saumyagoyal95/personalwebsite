@@ -16,16 +16,12 @@ export function CTASection() {
   return (
     <Section id="contact">
       <Reveal className="rounded-[28px] border border-white/15 bg-[#06264c] px-6 py-12 text-center sm:px-12 sm:py-[72px]">
-        <RevealItem as="h2">
-          <h2 className="font-display text-[30px] font-bold tracking-[-0.01em] text-[#f3e6d6] sm:text-[42px]">
-            Let&apos;s build something worth trusting.
-          </h2>
+        <RevealItem as="h2" className="font-display text-[30px] font-bold tracking-[-0.01em] text-[#f3e6d6] sm:text-[42px]">
+          Let&apos;s build something worth trusting.
         </RevealItem>
-        <RevealItem as="p">
-          <p className="mx-auto mt-3.5 max-w-[500px] text-[17px] leading-[1.6] text-[#f3e6d6]/80">
-            Open to speaking invitations, workshops, and MLOps / LLM engineering
-            conversations.
-          </p>
+        <RevealItem as="p" className="mx-auto mt-3.5 max-w-[500px] text-[17px] leading-[1.6] text-[#f3e6d6]/80">
+          Open to speaking invitations, workshops, and MLOps / LLM engineering
+          conversations.
         </RevealItem>
 
         <RevealItem className="mt-8 flex flex-wrap justify-center gap-3">

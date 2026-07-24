@@ -39,18 +39,14 @@ export default function AboutPage() {
               <RevealItem className="mb-3.5">
                 <Kicker tone="gold">About</Kicker>
               </RevealItem>
-              <RevealItem as="h1">
-                <h1 className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[52px]">
-                  Engineer by craft,{" "}
-                  <span className="text-accent">storyteller</span> on stage.
-                </h1>
+              <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[52px]">
+                Engineer by craft,{" "}
+                <span className="text-accent">storyteller</span> on stage.
               </RevealItem>
-              <RevealItem as="p">
-                <p className="mt-[22px] max-w-[520px] text-[19px] leading-[1.65] text-muted">
-                  I&apos;m Saumya — I build the unglamorous machinery that makes
-                  machine learning trustworthy, and I love standing in front of a
-                  room explaining why it matters.
-                </p>
+              <RevealItem as="p" className="mt-[22px] max-w-[520px] text-[19px] leading-[1.65] text-muted">
+                I&apos;m Saumya — I build the unglamorous machinery that makes
+                machine learning trustworthy, and I love standing in front of a
+                room explaining why it matters.
               </RevealItem>
             </Reveal>
 
@@ -84,38 +80,32 @@ export default function AboutPage() {
       <Section>
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal className="space-y-4">
-            <RevealItem as="p">
-              <p className="text-[16.5px] leading-[1.8] text-body">
-                I&apos;m a Senior Machine Learning Engineer at{" "}
-                <span className="font-medium text-fg">Datamics</span>, where I
-                help teams take MLOps and LLM systems from prototype into
-                production — experiment tracking, model lifecycle, and the
-                observability that keeps models honest once they&apos;re live.
-              </p>
+            <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
+              I&apos;m a Senior Machine Learning Engineer at{" "}
+              <span className="font-medium text-fg">Datamics</span>, where I
+              help teams take MLOps and LLM systems from prototype into
+              production — experiment tracking, model lifecycle, and the
+              observability that keeps models honest once they&apos;re live.
             </RevealItem>
-            <RevealItem as="p">
-              <p className="text-[16.5px] leading-[1.8] text-body">
-                Before Datamics I was at{" "}
-                <span className="font-medium text-fg">Verizon</span>. I&apos;m an{" "}
-                <span className="font-medium text-fg">
-                  AWS Solutions Architect
-                </span>{" "}
-                and an Informatics graduate of the{" "}
-                <span className="font-medium text-fg">
-                  Technical University of Munich
-                </span>
-                . The two sides feed each other — research sharpens the
-                engineering, and production keeps the research honest.
-              </p>
+            <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
+              Before Datamics I was at{" "}
+              <span className="font-medium text-fg">Verizon</span>. I&apos;m an{" "}
+              <span className="font-medium text-fg">
+                AWS Solutions Architect
+              </span>{" "}
+              and an Informatics graduate of the{" "}
+              <span className="font-medium text-fg">
+                Technical University of Munich
+              </span>
+              . The two sides feed each other — research sharpens the
+              engineering, and production keeps the research honest.
             </RevealItem>
-            <RevealItem as="p">
-              <p className="text-[16.5px] leading-[1.8] text-body">
-                Somewhere along the way I discovered I love the stage. In my
-                talks and my writing, I try to take the hardest parts of modern
-                ML — LLM observability, evaluation, the reliability nobody tweets
-                about — and make them land. That&apos;s the throughline: build it
-                well, then help others build it too.
-              </p>
+            <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
+              Somewhere along the way I discovered I love the stage. In my
+              talks and my writing, I try to take the hardest parts of modern
+              ML — LLM observability, evaluation, the reliability nobody tweets
+              about — and make them land. That&apos;s the throughline: build it
+              well, then help others build it too.
             </RevealItem>
             <RevealItem className="pt-2">
               <Button href="/speaking" variant="outline">

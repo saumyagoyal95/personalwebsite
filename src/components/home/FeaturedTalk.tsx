@@ -15,15 +15,11 @@ export function FeaturedTalk() {
 
         <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-end">
           <div>
-            <RevealItem as="h2">
-              <h2 className="max-w-3xl font-display text-[28px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[36px]">
-                {talk.title}
-              </h2>
+            <RevealItem as="h2" className="max-w-3xl font-display text-[28px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[36px]">
+              {talk.title}
             </RevealItem>
-            <RevealItem as="p">
-              <p className="mt-5 max-w-2xl text-[16.5px] leading-[1.8] text-body">
-                {talk.abstract}
-              </p>
+            <RevealItem as="p" className="mt-5 max-w-2xl text-[16.5px] leading-[1.8] text-body">
+              {talk.abstract}
             </RevealItem>
           </div>
 

@@ -40,24 +40,20 @@ export default function BookPage() {
             <RevealItem className="mb-3.5">
               <Kicker>Book</Kicker>
             </RevealItem>
-            <RevealItem as="h1">
-              <h1 className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
-                Let&apos;s find a <span className="text-accent">time.</span>
-              </h1>
+            <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
+              Let&apos;s find a <span className="text-accent">time.</span>
             </RevealItem>
-            <RevealItem as="p">
-              <p className="mt-[22px] text-[19px] leading-[1.65] text-muted">
-                Pick a slot below and it lands straight on my calendar —
-                you&apos;ll get a confirmation and a video link. Prefer email?
-                Reach me at{" "}
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="link-underline font-medium text-fg"
-                >
-                  {siteConfig.email}
-                </a>
-                .
-              </p>
+            <RevealItem as="p" className="mt-[22px] text-[19px] leading-[1.65] text-muted">
+              Pick a slot below and it lands straight on my calendar —
+              you&apos;ll get a confirmation and a video link. Prefer email?
+              Reach me at{" "}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="link-underline font-medium text-fg"
+              >
+                {siteConfig.email}
+              </a>
+              .
             </RevealItem>
           </Reveal>
         </Container>
