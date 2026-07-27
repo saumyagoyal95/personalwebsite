@@ -11,9 +11,9 @@ export interface SpeakingPhoto {
    *  they don't need to match how large the photo renders. */
   width: number;
   height: number;
-  /** Renders full-width on tablet, two of three columns on desktop. Meant for
-   *  a wide establishing shot; it keeps its own aspect ratio rather than being
-   *  cropped to match the others, so a panorama stays a panorama. */
+  /** Spans the full width of the grid instead of one column. Meant for a wide
+   *  establishing shot; it keeps its own aspect ratio rather than being cropped
+   *  to match the others, so a panorama stays a panorama. */
   featured?: boolean;
   /** Photographer, when one should be credited. Any credits found here are
    *  merged into a single line under the whole grid, not printed per photo. */
@@ -21,7 +21,24 @@ export interface SpeakingPhoto {
 }
 
 /**
- * The "In the room" grid on /speaking.
+ * The photo beside the intro at the top of /speaking. It's the only image on
+ * the page that loads eagerly, since it's the one visible before any scrolling.
+ * No caption: it reads as part of the header, not as a gallery entry.
+ */
+export const speakingHero: Omit<SpeakingPhoto, "caption" | "featured"> = {
+  src: "/images/speaking/mlconference-2025-talk-audience.webp",
+  alt: 'Saumya presenting to a seated audience beside an ML Conference banner, with a slide reading "So, what do we do?" projected on screen.',
+  width: 1600,
+  height: 1562,
+};
+
+/**
+ * The "In the room" grid further down /speaking.
+ *
+ * Order matters. The `featured` panorama spans the whole width, and the six
+ * that follow fill two clean rows of three on desktop. Adding or removing one
+ * leaves a gap in the last row — keep the non-featured count a multiple of
+ * three (or accept the ragged edge).
  *
  * To add a photo: drop the .webp in /public/images/speaking/ and add an entry.
  * The component reads this list as-is and needs no changes.
@@ -37,6 +54,8 @@ export const speakingPhotos: SpeakingPhoto[] = [
     height: 419,
     featured: true,
   },
+
+  // Row one: the 2023 workshop, twice, then the meetup line-up.
   {
     src: "/images/speaking/mlconference-2023-workshop-audience.webp",
     alt: "A full workshop room of attendees at laptops, several with hands raised, facing a projected Airflow DAG interface.",
@@ -45,18 +64,11 @@ export const speakingPhotos: SpeakingPhoto[] = [
     height: 1067,
   },
   {
-    src: "/images/speaking/mlconference-2025-talk-audience.webp",
-    alt: 'Saumya presenting to a seated audience beside an ML Conference banner, with a slide reading "So, what do we do?" projected on screen.',
-    caption: "ML Conference · 2025",
+    src: "/images/speaking/mlconference-2023-workshop-alt.webp",
+    alt: "Over-the-shoulder view of the same workshop, attendees following along in their own editors while a terminal runs at the front of the room.",
+    caption: "ML Conference · Munich · 2023",
     width: 1600,
-    height: 1562,
-  },
-  {
-    src: "/images/speaking/mlconference-2025-workshop-live-demo.webp",
-    alt: "Saumya running a live coding demo from the front of a workshop room, a notebook and terminal projected on the screen behind her.",
-    caption: "Workshop · Voxel51 & Label Studio · ML Conference · 2025",
-    width: 1600,
-    height: 1035,
+    height: 1067,
   },
   {
     src: "/images/speaking/mlops-community-munich-speakers.webp",
@@ -65,9 +77,27 @@ export const speakingPhotos: SpeakingPhoto[] = [
     width: 1170,
     height: 878,
   },
-];
 
-// Spares — not rendered. Swap in if you prefer these framings.
-// mlconference-2025-talk-stage.webp    1562x1600  (portrait, Langfuse trace-analysis slide)
-// mlconference-2025-talk-detail.webp   1380x1600  (portrait, tracing architecture slide)
-// mlconference-2023-workshop-alt.webp  1600x1067  (second frame, same 2023 session)
+  // Row two: the 2025 talk, then the 2025 workshop.
+  {
+    src: "/images/speaking/mlconference-2025-talk-stage.webp",
+    alt: "Saumya in silhouette against a large screen showing a live tracing dashboard of model costs and evaluation scores.",
+    caption: "ML Conference · 2025",
+    width: 1562,
+    height: 1600,
+  },
+  {
+    src: "/images/speaking/mlconference-2025-talk-detail.webp",
+    alt: "Saumya smiling beside a projected slide diagramming how a request flows through retrieval, memory, and tool calls before it is traced.",
+    caption: "ML Conference · 2025",
+    width: 1380,
+    height: 1600,
+  },
+  {
+    src: "/images/speaking/mlconference-2025-workshop-live-demo.webp",
+    alt: "Saumya running a live coding demo from the front of a workshop room, a notebook and terminal projected on the screen behind her.",
+    caption: "Workshop · Voxel51 & Label Studio · ML Conference · 2025",
+    width: 1600,
+    height: 1035,
+  },
+];

@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * The photo grid on /speaking. One column on mobile, two from `sm`, three from
- * `lg` — where a `featured` photo spans two of them as the establishing shot.
+ * `lg` — where a `featured` photo spans the full width as the establishing shot.
  *
  * Photos arrive at mixed aspect ratios, so the ordinary ones sit in a 4:3 box
  * and cover it, which keeps the rows aligned. A featured photo instead keeps
@@ -25,7 +25,7 @@ export function PhotoGrid({ photos }: { photos: SpeakingPhoto[] }) {
           <RevealItem
             as="li"
             key={photo.src}
-            className={cn(photo.featured && "sm:col-span-2")}
+            className={cn(photo.featured && "sm:col-span-2 lg:col-span-3")}
           >
             <figure>
               <div
@@ -41,11 +41,11 @@ export function PhotoGrid({ photos }: { photos: SpeakingPhoto[] }) {
                   height={photo.height}
                   loading="lazy"
                   // Measured against the 1120px container: three columns with a
-                  // 20px gap give 339px each, so a featured photo's two columns
-                  // plus the gap between them come to 697px.
+                  // 20px gap give 339px each; a featured photo spans the whole
+                  // 1056px of usable container width.
                   sizes={
                     photo.featured
-                      ? "(min-width: 1024px) 700px, 100vw"
+                      ? "(min-width: 1024px) 1060px, 100vw"
                       : "(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
                   }
                   className={cn(

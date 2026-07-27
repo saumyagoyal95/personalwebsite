@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section, Kicker } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/Container";
@@ -9,7 +10,7 @@ import { TalkCard } from "@/components/talks/TalkCard";
 import { PhotoGrid } from "@/components/speaking/PhotoGrid";
 import { talks } from "@/content/talks";
 import { topics } from "@/content/topics";
-import { speakingPhotos } from "@/content/speakingPhotos";
+import { speakingHero, speakingPhotos } from "@/content/speakingPhotos";
 import { siteConfig } from "@/content/siteConfig";
 import { tone, toneText } from "@/lib/tone";
 
@@ -32,33 +33,51 @@ export default function SpeakingPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-6 sm:pt-36">
         <Container>
-          <Reveal className="max-w-3xl">
-            <RevealItem className="mb-3.5">
-              <Kicker>Speaking profile</Kicker>
-            </RevealItem>
-            <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
-              On stage &amp; in the{" "}
-              <span className="text-accent">community.</span>
-            </RevealItem>
-            <RevealItem as="p" className="mt-[22px] max-w-[560px] text-[19px] leading-[1.65] text-muted">
-              I give technical talks that respect the audience&apos;s
-              intelligence and their time — turning MLOps, LLM observability,
-              and the messy reality of production ML into something people can
-              use.
-            </RevealItem>
-            <RevealItem className="mt-[34px] flex flex-wrap gap-3.5">
-              <Button href="/book" size="lg">
-                Book me to speak
-              </Button>
-              <Button
-                href={`mailto:${siteConfig.email}?subject=Speaking%20invitation`}
-                variant="outline"
-                size="lg"
-              >
-                Email an invitation
-              </Button>
-            </RevealItem>
-          </Reveal>
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
+            <Reveal>
+              <RevealItem className="mb-3.5">
+                <Kicker>Speaking profile</Kicker>
+              </RevealItem>
+              <RevealItem as="h1" className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[56px]">
+                On stage &amp; in the{" "}
+                <span className="text-accent">community.</span>
+              </RevealItem>
+              <RevealItem as="p" className="mt-[22px] max-w-[560px] text-[19px] leading-[1.65] text-muted">
+                I give technical talks that respect the audience&apos;s
+                intelligence and their time — turning MLOps, LLM observability,
+                and the messy reality of production ML into something people can
+                use.
+              </RevealItem>
+              <RevealItem className="mt-[34px] flex flex-wrap gap-3.5">
+                <Button href="/book" size="lg">
+                  Book me to speak
+                </Button>
+                <Button
+                  href={`mailto:${siteConfig.email}?subject=Speaking%20invitation`}
+                  variant="outline"
+                  size="lg"
+                >
+                  Email an invitation
+                </Button>
+              </RevealItem>
+            </Reveal>
+
+            <Reveal>
+              <RevealItem>
+                <div className="overflow-hidden rounded-[18px] border border-line">
+                  <Image
+                    src={speakingHero.src}
+                    alt={speakingHero.alt}
+                    width={speakingHero.width}
+                    height={speakingHero.height}
+                    priority
+                    sizes="(min-width: 1024px) 390px, 100vw"
+                    className="block h-auto w-full"
+                  />
+                </div>
+              </RevealItem>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
