@@ -143,7 +143,11 @@ const entries: Talk[] = [
     event: "PyData Munich",
     city: "Munich",
     sortDate: "2023-02-16",
-    coSpeaker: "Alon Gubkin",
+    // The company stays in the string — it's what makes the co-speaker line
+    // carry weight, and there's no separate affiliation field.
+    coSpeaker: "Alon Gubkin (CTO, Aporia)",
+    summary:
+      "Monitoring ML models once they're live — drift, performance degradation, and what's worth instrumenting.",
     hasPhoto: false,
   },
 ];
