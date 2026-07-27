@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { siteConfig } from "@/content/siteConfig";
+import { socials, iconSocials } from "@/content/socials";
 import { Container } from "@/components/ui/Container";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 
 const nav = [
   { href: "/about", label: "About" },
@@ -9,10 +11,8 @@ const nav = [
   { href: "/book", label: "Book me" },
 ];
 
-const socials = [
-  { href: siteConfig.socials.linkedin, label: "LinkedIn" },
-  { href: siteConfig.socials.medium, label: "Medium" },
-  { href: siteConfig.socials.mlconference, label: "ML Conference" },
+const elsewhere = [
+  ...socials.map((s) => ({ href: s.href, label: s.label })),
   { href: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 
@@ -29,9 +29,25 @@ export function Footer() {
               saumya<span className="text-accent">.</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              {siteConfig.tagline} Building reliable ML &amp; LLM systems — and
-              taking the stage to make them make sense.
+              {siteConfig.tagline}{" "}
+              Building reliable ML &amp; LLM systems — and taking the stage to
+              make them make sense.
             </p>
+            <ul className="mt-6 flex items-center gap-2">
+              {iconSocials.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${siteConfig.name} on ${s.label}`}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-primary hover:text-accent"
+                  >
+                    <SocialIcon id={s.id} className="h-[18px] w-[18px]" />
+                  </a>
+                </li>
+              ))}
+            </ul>
             <p className="mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-faint">
               {siteConfig.location}
             </p>
@@ -56,7 +72,7 @@ export function Footer() {
             <div>
               <h3 className="dc-eyebrow text-gold">Elsewhere</h3>
               <ul className="mt-4 space-y-3">
-                {socials.map((l) => (
+                {elsewhere.map((l) => (
                   <li key={l.label}>
                     <a
                       href={l.href}

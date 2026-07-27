@@ -1,10 +1,12 @@
 import { Section } from "@/components/ui/Section";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { siteConfig } from "@/content/siteConfig";
+import { iconSocials } from "@/content/socials";
 
-const socials = [
-  { label: "LinkedIn", href: siteConfig.socials.linkedin },
-  { label: "Medium", href: siteConfig.socials.medium },
+// Labelled text links, deliberately not bare icons: this block is the one place
+// a visitor is deciding how to reach out, so the destinations are spelled out.
+const contactLinks = [
+  ...iconSocials.map((s) => ({ label: s.label, href: s.href })),
   { label: "Email", href: `mailto:${siteConfig.email}` },
 ];
 
@@ -25,7 +27,7 @@ export function CTASection() {
         </RevealItem>
 
         <RevealItem className="mt-8 flex flex-wrap justify-center gap-3">
-          {socials.map((s) => (
+          {contactLinks.map((s) => (
             <a
               key={s.label}
               href={s.href}

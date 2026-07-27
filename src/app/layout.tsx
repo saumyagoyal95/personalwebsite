@@ -5,6 +5,7 @@ import { siteConfig } from "@/content/siteConfig";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { themeInitScript } from "@/components/theme/ThemeToggle";
+import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -76,6 +77,7 @@ export default function RootLayout({
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
+        <PersonJsonLd />
         <Nav />
         <main className="relative flex-1">{children}</main>
         <Footer />
