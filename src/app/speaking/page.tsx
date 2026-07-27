@@ -6,8 +6,10 @@ import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Card, FactCard } from "@/components/ui/Card";
 import { TalkCard } from "@/components/talks/TalkCard";
+import { PhotoGrid } from "@/components/speaking/PhotoGrid";
 import { talks } from "@/content/talks";
 import { topics } from "@/content/topics";
+import { speakingPhotos } from "@/content/speakingPhotos";
 import { siteConfig } from "@/content/siteConfig";
 import { tone, toneText } from "@/lib/tone";
 
@@ -107,6 +109,18 @@ export default function SpeakingPage() {
             Berlin.
           </RevealItem>
         </Reveal>
+      </Section>
+
+      {/* Photos */}
+      <Section>
+        <SectionHeading
+          kicker="On stage"
+          kickerTone="gold"
+          title="In the room."
+        />
+        <div className="mt-10">
+          <PhotoGrid photos={speakingPhotos} />
+        </div>
       </Section>
 
       {/* One-sheet + CTA */}
