@@ -17,16 +17,30 @@ const contactLinks = [
 export function CTASection() {
   return (
     <Section id="contact">
-      <Reveal className="rounded-[28px] border border-white/15 bg-[#06264c] px-6 py-12 text-center sm:px-12 sm:py-[72px]">
-        <RevealItem as="h2" className="font-display text-[30px] font-bold tracking-[-0.01em] text-[#f3e6d6] sm:text-[42px]">
+      <Reveal className="rounded-[28px] border border-white/15 bg-[#06264c] px-6 py-10 text-center sm:px-10 sm:py-12">
+        <RevealItem as="h2" className="font-display text-[24px] font-bold tracking-[-0.01em] text-[#f3e6d6] sm:text-[30px]">
           Let&apos;s build something worth trusting.
         </RevealItem>
-        <RevealItem as="p" className="mx-auto mt-3.5 max-w-[500px] text-[17px] leading-[1.6] text-[#f3e6d6]/80">
+        <RevealItem as="p" className="mx-auto mt-3 max-w-[460px] text-[15px] leading-[1.6] text-[#f3e6d6]/75">
           Open to speaking invitations, workshops, and MLOps / LLM engineering
           conversations.
         </RevealItem>
 
-        <RevealItem className="mt-8 flex flex-wrap justify-center gap-3">
+        {/*
+          Booking is the primary action, so it keeps the solid button; the
+          profile links sit beside it as quieter outlines. Previously the
+          booking sat in its own bordered panel below, which made this block
+          roughly twice as tall as it needed to be.
+        */}
+        <RevealItem className="mt-7 flex flex-wrap justify-center gap-3">
+          <a
+            href={siteConfig.calendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="dc-btn rounded-full bg-[#f3e6d6] px-[26px] py-[13px] text-[14.5px] font-bold text-[#06264c]"
+          >
+            Book a 25-minute call
+          </a>
           {contactLinks.map((s) => (
             <a
               key={s.label}
@@ -38,25 +52,6 @@ export function CTASection() {
               {s.label}
             </a>
           ))}
-        </RevealItem>
-
-        <RevealItem className="mt-9 flex justify-center">
-          <div className="flex max-w-[420px] flex-col items-center gap-3.5 rounded-[20px] border border-white/20 bg-white/10 px-[30px] py-[26px]">
-            <h3 className="font-display text-[19px] font-semibold text-[#f3e6d6]">
-              Book a 25-minute call
-            </h3>
-            <p className="text-[14.5px] leading-[1.6] text-[#f3e6d6]/80">
-              Grab a slot — happy to talk MLOps, LLM observability, or speaking.
-            </p>
-            <a
-              href={siteConfig.calendarUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dc-btn rounded-full bg-[#f3e6d6] px-[26px] py-[13px] text-[14.5px] font-bold text-[#06264c]"
-            >
-              Schedule on Google Calendar
-            </a>
-          </div>
         </RevealItem>
       </Reveal>
     </Section>

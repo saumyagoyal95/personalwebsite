@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Section, Kicker } from "@/components/ui/Section";
+import { Section, Kicker, Chip } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/Container";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Card, FactCard } from "@/components/ui/Card";
+import { FactCard } from "@/components/ui/Card";
+import { ExternalLinkIcon } from "@/components/ui/ExternalLinkIcon";
 import { TalkCard } from "@/components/talks/TalkCard";
 import { PhotoGrid } from "@/components/speaking/PhotoGrid";
+import { LogoStrip } from "@/components/speaking/LogoStrip";
 import { talks } from "@/content/talks";
-import { topics } from "@/content/topics";
+import { speakingTopics } from "@/content/topics";
 import { speakingHero, speakingPhotos } from "@/content/speakingPhotos";
 import { siteConfig } from "@/content/siteConfig";
-import { tone, toneText } from "@/lib/tone";
 
 export const metadata: Metadata = {
   title: "Speaking",
@@ -83,25 +84,15 @@ export default function SpeakingPage() {
 
       {/* Topics */}
       <Section>
-        <SectionHeading kicker="Topics" kickerTone="gold" title="What I speak on." />
-        <Reveal as="ul" className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
-          {topics.map((t, i) => (
-            <RevealItem as="li" key={t.no} className="h-full">
-              <Card className="flex h-full gap-5">
-                <span
-                  className={`font-display text-[34px] font-bold leading-none ${toneText[tone(i)]}`}
-                >
-                  {t.no}
-                </span>
-                <div>
-                  <h3 className="font-display text-xl font-semibold leading-[1.25] text-fg">
-                    {t.title}
-                  </h3>
-                  <p className="mt-2.5 text-[15px] leading-[1.7] text-body">
-                    {t.blurb}
-                  </p>
-                </div>
-              </Card>
+        <SectionHeading
+          kicker="Topics"
+          kickerTone="gold"
+          title="Topics I speak on."
+        />
+        <Reveal as="ul" className="mt-10 flex flex-wrap gap-3">
+          {speakingTopics.map((label) => (
+            <RevealItem as="li" key={label}>
+              <Chip>{label}</Chip>
             </RevealItem>
           ))}
         </Reveal>
@@ -109,24 +100,36 @@ export default function SpeakingPage() {
 
       {/* Talks */}
       <Section>
-        <SectionHeading
-          kicker="Talks & workshops"
-          title="Where I've spoken."
-          intro="A selection of recent sessions. Recordings and slides link out where available."
-        />
+        <SectionHeading kicker="Talks & workshops" title="Where I've spoken." />
+
+        <Reveal className="mt-6">
+          <RevealItem as="p" className="max-w-[640px] text-[19px] leading-[1.65] text-muted">
+            Speaking at ML Conference, PyData, and MLOps Community events across
+            multiple cities in Europe since 2022.
+          </RevealItem>
+          <RevealItem className="mt-3.5">
+            <a
+              href={siteConfig.socials.mlconference}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-[13px] text-muted transition-colors hover:text-accent"
+            >
+              Speaker profile — ML Conference
+              <ExternalLinkIcon className="ml-1.5 h-[0.85em] w-[0.85em]" />
+            </a>
+          </RevealItem>
+        </Reveal>
+
+        <div className="mt-8">
+          <LogoStrip />
+        </div>
+
         <Reveal as="ul" className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
           {talks.map((talk, i) => (
             <RevealItem as="li" key={talk.title} className="h-full">
               <TalkCard talk={talk} index={i} />
             </RevealItem>
           ))}
-        </Reveal>
-
-        <Reveal className="mt-6">
-          <RevealItem as="p" className="text-[15px] leading-[1.7] text-muted">
-            Also spoken at PyData Munich, MLOps Community Munich, and VibeKode
-            Berlin.
-          </RevealItem>
         </Reveal>
       </Section>
 

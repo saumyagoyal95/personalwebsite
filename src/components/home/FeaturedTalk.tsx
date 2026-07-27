@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { Section, Kicker } from "@/components/ui/Section";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
-import { talks } from "@/content/talks";
+import { talks, talkYear, confirmedVenues } from "@/content/talks";
 
 export function FeaturedTalk() {
   const talk = talks.find((t) => t.featured) ?? talks[0];
+  const venues = confirmedVenues(talk);
+  // Years only — the site deliberately doesn't print full dates anywhere.
+  const when =
+    venues.length > 0
+      ? venues.map((v) => `${v.city} ${v.year}`).join(" · ")
+      : [talk.city, talkYear(talk)].filter(Boolean).join(" · ");
 
   return (
     <Section>
@@ -18,9 +24,11 @@ export function FeaturedTalk() {
             <RevealItem as="h2" className="max-w-3xl font-display text-[28px] font-bold leading-[1.1] tracking-[-0.01em] text-fg sm:text-[36px]">
               {talk.title}
             </RevealItem>
-            <RevealItem as="p" className="mt-5 max-w-2xl text-[16.5px] leading-[1.8] text-body">
-              {talk.abstract}
-            </RevealItem>
+            {talk.summary && (
+              <RevealItem as="p" className="mt-5 max-w-2xl text-[16.5px] leading-[1.8] text-body">
+                {talk.summary}
+              </RevealItem>
+            )}
           </div>
 
           <RevealItem className="lg:justify-self-end">
@@ -35,20 +43,22 @@ export function FeaturedTalk() {
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-gold">
-                  When
+                  Where
                 </dt>
                 <dd className="mt-1 text-[15.5px] font-medium text-fg">
-                  {talk.date}
+                  {when}
                 </dd>
               </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-gold">
-                  Topics
-                </dt>
-                <dd className="mt-1 text-[15.5px] font-medium text-fg">
-                  {talk.tags.join(", ")}
-                </dd>
-              </div>
+              {talk.coSpeaker && (
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-gold">
+                    With
+                  </dt>
+                  <dd className="mt-1 text-[15.5px] font-medium text-fg">
+                    {talk.coSpeaker}
+                  </dd>
+                </div>
+              )}
               <Link
                 href="/speaking"
                 className="link-underline inline-flex pt-1 text-[15px] font-semibold text-accent"
