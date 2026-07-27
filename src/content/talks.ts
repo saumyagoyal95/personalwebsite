@@ -55,23 +55,3 @@ export const talks: Talk[] = [
     tags: ["MLOps", "MLflow", "Lifecycle", "Reproducibility"],
   },
 ];
-
-export interface Venue {
-  venue: string;
-  note: string;
-  date?: string;
-}
-
-/**
- * Stages and communities without a dedicated session write-up yet. Promote one
- * into `talks` above once you have a title and abstract for it.
- */
-export const speakingVenues: Venue[] = [
-  {
-    venue: "VibeKode Berlin",
-    note: "Evaluating RAGs & agents before they reach customers",
-    date: "2026",
-  },
-  { venue: "PyData Munich", note: "Speaker" },
-  { venue: "MLOps Community Munich", note: "Speaker" },
-];

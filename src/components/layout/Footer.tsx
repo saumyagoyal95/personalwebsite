@@ -81,7 +81,7 @@ export function Footer() {
 
         <div className="mt-14 border-t border-line pt-8 text-center text-[13px] text-muted">
           © {new Date().getFullYear()} {siteConfig.name} · Built with care in
-          Munich
+          Berlin
         </div>
       </Container>
     </footer>

@@ -5,13 +5,9 @@ import { Container } from "@/components/ui/Container";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Card, FactCard } from "@/components/ui/Card";
-import { TalkCard, VenueCard } from "@/components/talks/TalkCard";
-import { PhotoGallery } from "@/components/speaking/PhotoGallery";
-import { TestimonialCard } from "@/components/speaking/TestimonialCard";
-import { talks, speakingVenues } from "@/content/talks";
+import { TalkCard } from "@/components/talks/TalkCard";
+import { talks } from "@/content/talks";
 import { topics } from "@/content/topics";
-import { testimonials } from "@/content/testimonials";
-import { galleryPhotos } from "@/content/photos";
 import { siteConfig } from "@/content/siteConfig";
 import { tone, toneText } from "@/lib/tone";
 
@@ -105,42 +101,11 @@ export default function SpeakingPage() {
           ))}
         </Reveal>
 
-        <Reveal as="ul" className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {speakingVenues.map((v, i) => (
-            <RevealItem as="li" key={v.venue} className="h-full">
-              <VenueCard
-                venue={v.venue}
-                note={v.note}
-                date={v.date}
-                index={i + talks.length}
-              />
-            </RevealItem>
-          ))}
-        </Reveal>
-      </Section>
-
-      {/* Gallery */}
-      <Section>
-        <SectionHeading
-          kicker="On stage"
-          kickerTone="gold"
-          title="In the room."
-          intro="Photos from talks and workshops. (More going up as I gather them.)"
-        />
-        <div className="mt-10">
-          <PhotoGallery photos={galleryPhotos} />
-        </div>
-      </Section>
-
-      {/* Testimonials */}
-      <Section>
-        <SectionHeading kicker="Feedback" title="What organizers & audiences say." />
-        <Reveal as="ul" className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <RevealItem as="li" key={i} className="h-full">
-              <TestimonialCard t={t} />
-            </RevealItem>
-          ))}
+        <Reveal className="mt-6">
+          <RevealItem as="p" className="text-[15px] leading-[1.7] text-muted">
+            Also spoken at PyData Munich, MLOps Community Munich, and VibeKode
+            Berlin.
+          </RevealItem>
         </Reveal>
       </Section>
 

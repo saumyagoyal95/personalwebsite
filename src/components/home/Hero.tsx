@@ -43,7 +43,7 @@ export function Hero() {
             variants={item}
             className="mt-[22px] max-w-[520px] text-[19px] leading-[1.65] text-muted"
           >
-            Senior Machine Learning Engineer in Munich, working in MLOps and LLM
+            Senior Machine Learning Engineer in Berlin, working in MLOps and LLM
             observability. I love turning fuzzy prototypes into production
             systems — and telling the story on stage at conferences, workshops,
             and meetups.

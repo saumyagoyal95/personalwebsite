@@ -74,39 +74,3 @@ export function TalkCard({ talk, index = 0 }: { talk: Talk; index?: number }) {
     </Card>
   );
 }
-
-/** Compact card for a stage with no written-up session yet. */
-export function VenueCard({
-  venue,
-  note,
-  date,
-  index = 0,
-}: {
-  venue: string;
-  note: string;
-  date?: string;
-  index?: number;
-}) {
-  const t: Tone = tone(index);
-
-  return (
-    <Card topBar={t} className="h-full">
-      <Badge className={toneText[t]}>Speaker</Badge>
-      <h3 className="mt-4 font-display text-[19px] font-semibold leading-[1.3] text-fg">
-        {venue}
-      </h3>
-      <p className="mt-3 text-sm font-medium text-muted">
-        {note}
-        {date && (
-          <>
-            {" "}
-            <span className={toneText[t]} aria-hidden>
-              ·
-            </span>{" "}
-            {date}
-          </>
-        )}
-      </p>
-    </Card>
-  );
-}

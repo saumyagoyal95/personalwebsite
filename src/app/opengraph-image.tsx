@@ -82,7 +82,7 @@ export default function OGImage() {
             fontSize: 26,
           }}
         >
-          <span>Senior ML Engineer &amp; Speaker · Munich</span>
+          <span>Senior ML Engineer &amp; Speaker · Berlin</span>
           <span>{siteConfig.url.replace("https://", "")}</span>
         </div>
       </div>
