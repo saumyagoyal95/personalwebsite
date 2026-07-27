@@ -42,8 +42,6 @@ export const speakingHero: Omit<SpeakingPhoto, "caption" | "featured"> = {
  *
  * To add a photo: drop the .webp in /public/images/speaking/ and add an entry.
  * The component reads this list as-is and needs no changes.
- *
- * TODO(saumya): confirm city + exact dates before publishing.
  */
 export const speakingPhotos: SpeakingPhoto[] = [
   {

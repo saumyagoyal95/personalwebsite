@@ -20,17 +20,6 @@ export function Hero() {
     <section className="relative pt-32 pb-10 sm:pt-36">
       <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-10 px-6 sm:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-14">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p
-            variants={item}
-            className="dc-chip mb-[26px] inline-flex items-center gap-2 rounded-full px-3.5 py-[7px] text-[13px] font-semibold text-fg"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Available for talks &amp; workshops
-          </motion.p>
-
           <motion.h1
             variants={item}
             className="font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[52px] lg:text-[60px]"
