@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       className={`${spaceGrotesk.variable} ${workSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >

@@ -14,7 +14,11 @@
    block below re-exports them as Tailwind utilities.
 --------------------------------------------------------------------------- */
 
-/* Dark is the default theme. */
+/* Light is the site's default theme — but the dark values live here in :root
+   and light overrides them below. That inversion is deliberate: <html> always
+   ships an explicit data-theme (set in layout.tsx, corrected before paint by
+   themeInitScript), so :root never governs on its own. Flipping the default
+   means changing those two places, not moving these token blocks around. */
 :root {
   --bg: #06264c;
   --surface: #0c3160; /* card background */

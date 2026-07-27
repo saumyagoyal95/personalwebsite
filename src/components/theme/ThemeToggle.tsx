@@ -10,8 +10,12 @@ export const THEME_STORAGE_KEY = "personal-site-theme";
 /**
  * Runs before paint (injected into <head>) so the correct theme is on <html>
  * from the very first frame — no flash of the wrong palette on reload.
+ *
+ * Resolution order: a stored choice always wins; failing that we follow the
+ * visitor's OS setting; failing that (no preference, or storage throws in
+ * private mode) we land on light, which is the site's default.
  */
-export const themeInitScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t!=="light"&&t!=="dark"){t="dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})();`;
+export const themeInitScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}})();`;
 
 export function ThemeToggle({ className }: { className?: string }) {
   // Start as `null` so the first client render matches the server HTML; the
@@ -47,7 +51,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     >
       {/* Hidden until mounted so SSR doesn't render a label that may be wrong. */}
       <span className={cn("hidden sm:inline", !theme && "opacity-0")}>
-        Switch to {theme ? nextLabel : "Light"}
+        Switch to {theme ? nextLabel : "Dark"}
       </span>
       <span
         className="grid h-[26px] w-[26px] place-items-center rounded-full bg-bg text-sm text-fg"
