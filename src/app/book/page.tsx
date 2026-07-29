@@ -10,7 +10,7 @@ import { tone, toneText } from "@/lib/tone";
 export const metadata: Metadata = {
   title: "Book",
   description:
-    "Book a call with Saumya Goyal — speaking invitations, MLOps consulting, or a conversation about building reliable ML. Pick a time that syncs to the calendar.",
+    "Book a call with Saumya Goyal — speaking invitations, ML engineering consulting, or a conversation about building reliable ML. Pick a time that syncs to the calendar.",
 };
 
 const reasons = [
@@ -21,7 +21,7 @@ const reasons = [
   },
   {
     no: "02",
-    title: "MLOps & consulting",
+    title: "ML engineering & consulting",
     body: "Observability, ML lifecycle, or getting models reliably into production — bring the messy version.",
   },
   {

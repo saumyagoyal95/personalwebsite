@@ -82,10 +82,13 @@ export default function AboutPage() {
           <Reveal className="space-y-4">
             <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
               I&apos;m a Senior Machine Learning Engineer at{" "}
-              <span className="font-medium text-fg">Datamics</span>, where I
-              help teams take MLOps and LLM systems from prototype into
-              production — experiment tracking, model lifecycle, and the
-              observability that keeps models honest once they&apos;re live.
+              <span className="font-medium text-fg">Datamics</span>, with{" "}
+              <span className="font-medium text-fg">7+ years</span> helping
+              teams take ML and LLM systems from prototype into production —
+              experiment tracking, model lifecycle, and the observability that
+              keeps models honest once they&apos;re live. Right now that work
+              runs through a consulting engagement with a global home-appliances
+              group.
             </RevealItem>
             <RevealItem as="p" className="text-[16.5px] leading-[1.8] text-body">
               Before Datamics I was at{" "}

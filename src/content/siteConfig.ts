@@ -5,14 +5,14 @@
 export const siteConfig = {
   name: "Saumya Goyal",
   firstName: "Saumya",
-  role: "MLOps Engineer & Speaker",
+  role: "Senior Machine Learning Engineer & Speaker",
   location: "Berlin, Germany",
 
   // The line the whole brand rests on.
   tagline: "Building data that speaks.",
 
   description:
-    "Saumya Goyal is an MLOps engineer and conference speaker in Berlin. She builds reliable, observable ML & LLM systems — and takes the stage to make them make sense.",
+    "Saumya Goyal is a Senior Machine Learning Engineer and conference speaker in Berlin, with 7+ years building reliable, observable ML & LLM systems — and taking the stage to make them make sense.",
 
   url: "https://saumyagoyal.me",
 

@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Saumya Goyal",
+    "machine learning engineer",
     "MLOps",
     "LLM observability",
     "keynote speaker",

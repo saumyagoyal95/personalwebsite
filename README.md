@@ -1,7 +1,7 @@
 # saumyagoyal.me
 
-Personal + speaker website for **Saumya Goyal** — MLOps engineer & conference
-speaker. Dark, bold, motion-forward. Built with Next.js.
+Personal + speaker website for **Saumya Goyal** — Senior Machine Learning
+Engineer & conference speaker. Dark, bold, motion-forward. Built with Next.js.
 
 - **Pages:** Home, About, Speaking (flagship), Writing (→ Medium), Book
   (Google Calendar).

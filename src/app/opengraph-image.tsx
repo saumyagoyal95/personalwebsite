@@ -82,7 +82,14 @@ export default function OGImage() {
             fontSize: 26,
           }}
         >
-          <span>Senior ML Engineer &amp; Speaker · Berlin</span>
+          {/*
+            Derived from siteConfig, not retyped — this line and the page title
+            used to drift apart, which is how the card ended up advertising a
+            different job title than the site itself.
+          */}
+          <span>
+            {siteConfig.role} · {siteConfig.location.split(",")[0]}
+          </span>
           <span>{siteConfig.url.replace("https://", "")}</span>
         </div>
       </div>
